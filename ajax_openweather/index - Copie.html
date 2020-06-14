@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Ajax API Open Weather</title>
+    <style>
+        tr.modele {
+            display: hide;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section id="actuellement">
+            <h2>Météo actuelle</h2>
+            <p class="temperature">Il fait <span class="val"></span></p>
+            <p class="description">Le ciel est <span class="val"></span></p>
+            <p class="icone">Icône : <img src="" alt="" class="val" /></p>
+        </section>
+        <section id="previsions">
+            <h2>Prévisions Météo</h2>
+            <div id="info_panel">
+                <ul>
+                </ul>
+            </div>
+            <div id="data_panel">
+                <table id="tb_prevision">
+                    <thead>
+                        <tr>
+                            <th>Heure</th>
+                            <th>Temp</th>
+                            <th>Icône</th>
+                            <th>Desc.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="modele">
+                            <td class="heure"></td>
+                            <td class="temperature"></td>
+                            <td class="icone"><img src="" alt="" /></td>
+                            <td class="description"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="script/main.js"></script>
+</body>
+
+</html>

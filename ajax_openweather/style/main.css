@@ -1,0 +1,66 @@
+.clear {
+	background-image: url(https://images.unsplash.com/photo-1547314283-befb6cc5cf29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80);
+}
+
+.clouds {
+	background-image: url(https://images.unsplash.com/photo-1533464723939-f342846c5860?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80);	
+}
+
+.rain {
+	background-image: url(https://images6.alphacoders.com/408/408315.jpg);	
+}
+
+.snow {
+	background-image: url(https://images.unsplash.com/photo-1517166357932-d20495eeffd7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80);	
+}
+
+body {
+	
+	text-align: center;
+	color: rgb(255, 255, 255);
+	text-shadow: 3px 3px 3px rgba(0,0,0,0.5); 
+
+
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-position: center;
+	
+	background-position: center;
+	background-size: cover;
+	}
+
+h1 {
+	font-size: 3em;
+
+	position: relative;
+}
+
+h2 {
+	font-size: 2em;
+} 
+
+i.wi {
+	font-size: 5em;
+	line-height: 2em;
+}
+
+.infoBulle {
+	opacity: 0;
+	position: absolute;
+	top: -30px;
+	left: 30px;
+	color: white;
+	background-color: black;
+	border-radius: 8px;
+	padding: 10px;
+	font-size: 12px;
+	transition: opacity .3s, top .5s;
+}
+
+h1:hover .infoBulle {
+	top: -50px;
+	opacity: 1;
+	
+}
