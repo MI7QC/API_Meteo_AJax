@@ -1,18 +1,32 @@
-.clear {
-	background-image: url(https://images.unsplash.com/photo-1547314283-befb6cc5cf29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80);
+.rain {
+	background-image: url(https://images6.alphacoders.com/408/408315.jpg);	
 }
 
 .clouds {
 	background-image: url(https://images.unsplash.com/photo-1533464723939-f342846c5860?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80);	
 }
 
-.rain {
-	background-image: url(https://images6.alphacoders.com/408/408315.jpg);	
+.clear {
+	background-image: url(https://images.unsplash.com/photo-1547314283-befb6cc5cf29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80);
 }
 
 .snow {
 	background-image: url(https://images.unsplash.com/photo-1517166357932-d20495eeffd7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80);	
 }
+
+.Mist{
+	background-image: url(https://images7.alphacoders.com/921/921478.jpg);
+}
+
+.drizzle {
+	background-image: url(https://www.pxwall.com/wp-content/uploads/2018/06/Wallpaper%20Scandinavia,%20fog,%204K,%20Nature%206185916346.jpg);
+}
+
+.thunderstorm {
+	background-image: url(http://adwallpapers.xyz/uploads/posts/74993-lightning-clouds-storm-4k-ultra-hd-wallpaper__nature.jpg);
+
+}
+
 
 body {
 	
@@ -39,11 +53,25 @@ h1 {
 
 h2 {
 	font-size: 2em;
+	height: 5vh;
 } 
 
+h3 {
+	height: 5vh;
+	font-size: 2em;
+} 
+
+th {
+	font-size: 2em;
+	padding: 0px 25px 25px 25px;
+}
 i.wi {
 	font-size: 5em;
 	line-height: 2em;
+}
+
+td > i.wi {
+	font-size: 2em;
 }
 
 .infoBulle {

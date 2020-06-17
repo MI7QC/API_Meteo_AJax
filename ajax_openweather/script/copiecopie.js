@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ajax_openweather
  * Fichier script/main.js
  */
@@ -59,7 +59,7 @@ async function main(avecIp = true) {
     afficherMeteoInfo(meteo)
 
 
-    // recupere les données sur le server openweathermap pour avoir meteo sur 5 jours
+
     const meteo2 = await fetch("http://api.openweathermap.org/data/2.5/forecast?q=" + ville + "&APPID=d372021858e26c181fc642ca0f0dbd18&units=metric")
         .then(resultat => resultat.json())
         .then(json => json)
@@ -77,8 +77,8 @@ function afficherMeteoInfo(data) {
     const description = data.weather[0].description;
 
     $('#ville')[0].textContent = name;
-    $('#temperature')[0].textContent = Math.round(temperature);
-    $('#conditions')[0].textContent = lettreMaj(description);
+    $('.temperature')[0].textContent = Math.round(temperature);
+    $('.conditions')[0].textContent = lettreMaj(description);
     $('i.wi')[0].className = meteoImg[conditions];
 
     document.body.className = conditions.toLowerCase();
@@ -86,40 +86,26 @@ function afficherMeteoInfo(data) {
 
 
 function afficherMeteoInfo2(data2) {
-    // const name = data2.name;
-    // const temperature = data2.main.temp;
+    const name = data2.name;
+    const temperature = data2.main.temp;
     // const conditions = data2.weather[0].main;
     // const description = data2.weather[0].description;
-    // const heure = data2.timezone;
+    const heure = data2.timezone;
     let list = data2.list;
-
-    const conditions = list[0].weather[0].main;
 
 
     console.log("voici la liste des 3h : ", list);
 
 
-    $(document).ready(function () {
-        var eM = $('.modele');
-        var eH = $('.heure');
-        var eT = $('.temperature');
-        var eW = $('.icone');
-        var eC = $('.conditions');
+    // $(document).ready(function () {
+    //     var e = $('.modele');
+    //     for (var i = 0; i < 13; i++) {
+    //         e.attr("class", "modele" + i)
+    //         e.clone().insertBefore(e);
+    //         $(".modele12").remove();
+    //     }
 
-        for (var i = 0; i < 13; i++) {
-            eM.attr("class", "modele" + i)
-
-
-            eH.attr("class", "heure" + i)
-            eT.attr("class", "temperature" + i)
-            eW.attr("class", "icone" + i)
-            eC.attr("class", "conditions" + i)
-
-            eM.clone().insertBefore(eM);
-            $(".modele12").remove();
-        }
-
-    });
+    // });
 
 
     for (var i = 0; i <= 12; i++) {
@@ -130,19 +116,12 @@ function afficherMeteoInfo2(data2) {
         console.log(" list[i].weather[0].icon : ", list[i].weather[0].icon);
         console.log("-------------------------------------", i);
 
-        // $('.heure' + i)[0].innerHTML = CONV.dt_a_hm(list[i].dt);
-        // $('.temperature' + i)[0].textContent = Math.round(list[i].main.temp);
-        // $(".conditions" + i)[0].textContent = list[i].weather[0].description;
-        // $('.icone' + i)[0].className = meteoImg[conditions];
+        $('.heure')[i].innerHTML = CONV.dt_a_hm(heure);
+        $('.temperature')[i].textContent = list.main.temp;
 
+        // $('.heure')[0].innerHTML = CONV.dt_a_hm(heure);
 
     };
-
-    $('.heure')[0].innerHTML = CONV.dt_a_hm(list[i].dt);
-    $('.temperature')[0].textContent = Math.round(list[i].main.temp);
-    $(".conditions")[0].textContent = list[i].weather[0].description;
-    $('.icone')[0].className = meteoImg[conditions];
-
 }
 
 
