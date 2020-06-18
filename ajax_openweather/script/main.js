@@ -18,7 +18,7 @@ const meteoImg = {
     "scattered clouds": "wi wi-day-cloudy",
 }
 
-// fait en sorte que la premiere lettre d'un mot soit en Majuscule
+// la premiere lettre d'un mot soit en Majuscule
 function lettreMaj(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
@@ -31,6 +31,18 @@ const CONV = {
     }
 }
 
+//Recherche une icone par sont code numérique via le url
+const OW_API = {
+    base_icon_url: 'http://openweathermap.org/img/w/',
+
+    //http://openweathermap.org/img/w/10d.png
+    get_icon_url: function (icon_id) {
+        return this.base_icon_url + icon_id + ".png";
+    },
+};
+
+
+//Main fonction localiser IP -> trouver ville via IP ->insérer les donné recupérer dans l'url
 async function main(avecIp = true) {
     let ville;
 
@@ -90,29 +102,25 @@ function afficherMeteoInfo(data) {
 
 //Section 2
 function afficherMeteoInfo2(data2) {
-    let list = data2.list;
-    const conditions2 = list[0].weather[0].main;
 
+    var compteur = 0
     var eM = $('.modele');
     for (let item in data2.list) {
-        // console.log('${item}:', data2.list[item] + '${obect[item]}');
-        console.log('heure', CONV.dt_a_hm(data2.list[item]['dt']))
-        console.log('temperature', Math.round(data2.list[item]['main']['temp']))
-        console.log('description', data2.list[item]['weather']['0']['description'])
-        console.log('icone', data2.list[item]['weather']['0']['icon'])
-
-
+        if (compteur >= 12) {
+            break;
+        }
         $('.heure')[item].innerHTML = CONV.dt_a_hm(data2.list[item]['dt'])
         $('.temperature')[item].innerHTML = Math.round(data2.list[item]['main']['temp'])
-        $('.icone ')[item].textContent = data2.list[item]['weather']['0']['icon'];
+        $('.icone')[item].textContent = OW_API.get_icon_url(data2.list[item]['weather'][0].icon)
         $('.description')[item].textContent = data2.list[item]['weather']['0']['description']
-
-        // $('.icone')[item].className = meteoImg[conditions2];
         eM.clone().insertBefore(eM);
+        compteur++;
     }
+    $(".modele").last().remove();
 }
 
-//recuperation de la id ville
+
+//recuperation de l'id ville
 const ville = document.querySelector('#ville');
 
 //Permet d'éditer le champ ville
@@ -121,7 +129,7 @@ ville.addEventListener('click', () => {
 });
 
 
-//Permet a l'aide de la touche Enter d'envoyer notre confirmation
+//Permet a l'aide de la touche Entrer d'envoyer notre confirmation
 //prevenDefault pour pas avoir de saut de ligne
 ville.addEventListener('keydown', (e) => {
     if (e.keyCode === 13) {
@@ -132,12 +140,3 @@ ville.addEventListener('keydown', (e) => {
 })
 
 main();
-
-
-
-
-
-
-
-
-

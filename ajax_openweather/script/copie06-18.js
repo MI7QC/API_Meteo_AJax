@@ -94,8 +94,9 @@ function afficherMeteoInfo2(data2) {
     // const conditions2 = list[0].weather[0].main;
 
     var eM = $('.modele');
-    for (let item in data2.list) {
-
+    console.log("item2", data2)
+    for (let item of data2.list) {
+        console.log("item", item)
         if (compteur >= 12) {
             break;
         }
