@@ -90,16 +90,20 @@ function afficherMeteoInfo(data) {
 
 //Section 2
 function afficherMeteoInfo2(data2) {
-    let list = data2.list;
-    const conditions2 = list[0].weather[0].main;
+    // let list = data2.list;
+    // const conditions2 = list[0].weather[0].main;
 
     var eM = $('.modele');
     for (let item in data2.list) {
-        console.log('${item}:', item + '${obect[item]}');
-        console.log('heure', CONV.dt_a_hm(data2.list[item]['dt']))
-        console.log('temperature', Math.round(data2.list[item]['main']['temp']))
-        console.log('icone', data2.list[item]['weather']['0']['icon'])
-        console.log('description', data2.list[item]['weather']['0']['description'])
+
+        if (compteur >= 12) {
+            break;
+        }
+        // console.log('${item}:', item + '${obect[item]}');
+        // console.log('heure', CONV.dt_a_hm(data2.list[item]['dt']))
+        // console.log('temperature', Math.round(data2.list[item]['main']['temp']))
+        // console.log('icone', data2.list[item]['weather']['0']['icon'])
+        // console.log('description', data2.list[item]['weather']['0']['description'])
 
 
 
@@ -108,7 +112,7 @@ function afficherMeteoInfo2(data2) {
         $('.icone')[item].textContent = data2.list[item]['weather']['0']['icon'];
         // $('.description')[item].textContent = data2.list[item]['weather']['0']['description']
         eM.clone().insertBefore(eM);
-
+        compteur++;
 
     }
 }

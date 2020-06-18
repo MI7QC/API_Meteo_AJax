@@ -95,7 +95,7 @@ function afficherMeteoInfo2(data2) {
 
     var eM = $('.modele');
     for (let item in data2.list) {
-        // console.log('${item}:', item + '${obect[item]}');
+        // console.log('${item}:', data2.list[item] + '${obect[item]}');
         console.log('heure', CONV.dt_a_hm(data2.list[item]['dt']))
         console.log('temperature', Math.round(data2.list[item]['main']['temp']))
         console.log('description', data2.list[item]['weather']['0']['description'])
