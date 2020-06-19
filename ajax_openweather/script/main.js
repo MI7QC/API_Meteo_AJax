@@ -99,7 +99,6 @@ function afficherMeteoInfo(data) {
 }
 
 
-
 //Section 2
 function afficherMeteoInfo2(data2) {
 
@@ -111,14 +110,15 @@ function afficherMeteoInfo2(data2) {
         }
         $('.heure')[item].innerHTML = CONV.dt_a_hm(data2.list[item]['dt'])
         $('.temperature')[item].innerHTML = Math.round(data2.list[item]['main']['temp'])
-        $('.icone')[item].textContent = OW_API.get_icon_url(data2.list[item]['weather'][0].icon)
+        $('.icone')[item].innerHTML = `<img src= "${OW_API.get_icon_url(data2.list[item]["weather"][0].icon)}"/>`
         $('.description')[item].textContent = data2.list[item]['weather']['0']['description']
         eM.clone().insertBefore(eM);
         compteur++;
     }
     $(".modele").last().remove();
-}
 
+}
+console.log("$(tbody).innerHTML = ", $('tbody'))
 
 //recuperation de l'id ville
 const ville = document.querySelector('#ville');
@@ -130,9 +130,13 @@ ville.addEventListener('click', () => {
 
 
 //Permet a l'aide de la touche Entrer d'envoyer notre confirmation
+//remove les tr class modele qui on été créer par clone
 //prevenDefault pour pas avoir de saut de ligne
 ville.addEventListener('keydown', (e) => {
     if (e.keyCode === 13) {
+        for (let i = 0; i < 11; i++) {
+            $(".modele").last().remove();
+        }
         e.preventDefault();
         ville.contentEditable = false;
         main(false);

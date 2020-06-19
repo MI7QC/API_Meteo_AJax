@@ -36,7 +36,7 @@ body {
 	text-shadow: 3px 3px 3px rgba(0,0,0,0.5); 
 
 
-	height: 160vh;
+	height: 130vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -69,6 +69,12 @@ th {
 i.wi {
 	font-size: 5em;
 	line-height: 2em;
+}
+
+td{
+	font-size: 1.25em;
+	color: rgb(255, 255, 255);
+	text-shadow: 3px 3px 3px rgba(0,0,0,0.5); 
 }
 
 
