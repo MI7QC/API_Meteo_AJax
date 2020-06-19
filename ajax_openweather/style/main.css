@@ -81,8 +81,8 @@ td{
 .infoBulle {
 	opacity: 0;
 	position: absolute;
-	top: -30px;
-	left: 30px;
+	top: -10px;
+	left: 5px;
 	color: white;
 	background-color: black;
 	border-radius: 8px;
@@ -92,7 +92,7 @@ td{
 }
 
 h1:hover .infoBulle {
-	top: -50px;
+	top: +15px;
 	opacity: 1;
 	
 }
