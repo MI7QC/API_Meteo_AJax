@@ -118,7 +118,6 @@ function afficherMeteoInfo2(data2) {
     $(".modele").last().remove();
 
 }
-console.log("$(tbody).innerHTML = ", $('tbody'))
 
 //recuperation de l'id ville
 const ville = document.querySelector('#ville');
